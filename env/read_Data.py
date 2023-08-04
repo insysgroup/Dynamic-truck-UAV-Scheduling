@@ -41,27 +41,27 @@ def readData(data, path):
     count = 0
     for line in lines:
         count = count + 1
-        if count == 1:  # ¿Í»§ÊıÁ¿
+        if count == 1:  # å®¢æˆ·æ•°é‡
             line = line[:-1].strip()
             data.customerNum = int(line)
             data.nodeNum = data.customerNum + 2
-        if count == 3:  # ³µÁ¾ÈİÁ¿
+        if count == 3:  # è½¦è¾†å®¹é‡
             line = line[:-1].strip()
             data.capacity = int(line) / 2
-        if count == 4:  # ³µÁ¾ËÙ¶È
+        if count == 4:  # è½¦è¾†é€Ÿåº¦
             line = line[:-1].strip()
             data.vehicle_speed = 8.5  # m/s
-        if count == 5:  # uavËÙ¶È
+        if count == 5:  # uavé€Ÿåº¦
             line = line[:-1].strip()
-            data.uav_speed = 15  # Ñ²º½ËÙ¶È15m/s
-        if count == 6:  # uav Àï³Ì
+            data.uav_speed = 15  # å·¡èˆªé€Ÿåº¦15m/s
+        if count == 6:  # uav é‡Œç¨‹
             line = line[:-1].strip()
-            data.uav_range = 10  # 15  # KM  ×î´óĞøº½¿ÉÎª20
+            data.uav_range = 10  # 15  # KM  æœ€å¤§ç»­èˆªå¯ä¸º20
 
         if 8 <= count <= 8 + data.customerNum:
             line = line[:-1].strip()
             str = re.split('\t', line)
-            data.disMatrix.append(list(map(int, str)))  # µ¥Î» m
+            data.disMatrix.append(list(map(int, str)))  # å•ä½ m
 
         if count == 11 + data.customerNum:  # depot info
             line = line[:-1].strip()
@@ -73,7 +73,7 @@ def readData(data, path):
             data.demand.append(float(0))
             data.readyTime.append(float(0))   # float(str[4])
             data.dueTime.append(float(0))
-            data.serviceTime.append(float(0) * 10)  # ·şÎñÊ±¼äÀ©´óÁË10±¶
+            data.serviceTime.append(float(0) * 10)  # æœåŠ¡æ—¶é—´æ‰©å¤§äº†10å€
         if count >= 13 + data.customerNum:
             line = line[:-1].strip()
             # str = re.split('\t', line)
@@ -85,7 +85,7 @@ def readData(data, path):
             data.demand.append(float(str[3]))
             data.readyTime.append(float(str[4]))
             data.dueTime.append(float(str[5]))
-            data.serviceTime.append(float(str[6]) * 10)  # ·şÎñÊ±¼äÀ©´óÁË10±¶
+            data.serviceTime.append(float(str[6]) * 10)  # æœåŠ¡æ—¶é—´æ‰©å¤§äº†10å€
 
 
 if __name__ == '__main__':
