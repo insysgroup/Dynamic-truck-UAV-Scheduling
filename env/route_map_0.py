@@ -14,7 +14,7 @@ class RouteMap:
         self.data = Data()
         readData(self.data, path=data_path)
         if nodenum is None:
-            self.node_num = self.data.customerNum + 1  # °üº¬depot
+            self.node_num = self.data.customerNum + 1  # åŒ…å«depot
         else:
             self.node_num = nodenum
         self.truck_num = con.truck_num
@@ -22,14 +22,14 @@ class RouteMap:
         self.max_uav_num = con.max_uav_num
         self.total_uav_num = self.uav_num * self.truck_num
         self.total_truck_capacity = self.data.capacity
-        self.X = self.data.cor_X[:self.node_num]  # µØÍ¼³¤
-        self.Y = self.data.cor_Y[:self.node_num]  # µØÍ¼¿í
-        self.v_k = self.data.vehicle_speed  # »õ³µËÙ¶È m/s
-        self.v_u = self.data.uav_speed  # ÎŞÈË»úËÙ¶È
+        self.X = self.data.cor_X[:self.node_num]  # åœ°å›¾é•¿
+        self.Y = self.data.cor_Y[:self.node_num]  # åœ°å›¾å®½
+        self.v_k = self.data.vehicle_speed  # è´§è½¦é€Ÿåº¦ m/s
+        self.v_u = self.data.uav_speed  # æ— äººæœºé€Ÿåº¦
         self.fli_range = self.data.uav_range * 1000 / self.v_u
-        self.demand = self.data.demand[:self.node_num]  # ĞèÇóËùĞèµÄÎï×ÊÁ¿
-        self.service_time = self.data.serviceTime[:self.node_num]  # ·şÎñÊ±³¤
-        self.require_time = self.data.readyTime[:self.node_num]  # ½«ËãÀıµÄreadyTimeÉèÖÃÎª³Í·£¿ªÊ¼Ê±¼ä
+        self.demand = self.data.demand[:self.node_num]  # éœ€æ±‚æ‰€éœ€çš„ç‰©èµ„é‡
+        self.service_time = self.data.serviceTime[:self.node_num]  # æœåŠ¡æ—¶é•¿
+        self.require_time = self.data.readyTime[:self.node_num]  # å°†ç®—ä¾‹çš„readyTimeè®¾ç½®ä¸ºæƒ©ç½šå¼€å§‹æ—¶é—´
         self.disMatrix = [self.data.disMatrix[i][:self.node_num] for i in range(self.node_num)]
         self.truck_adj_matrix = [[0 for j in range(self.node_num)] for i in range(self.node_num)]
         self.uav_adj_matrix = [[0 for j in range(self.node_num)] for i in range(self.node_num)]
@@ -55,7 +55,7 @@ class RouteMap:
                 min_dis=0,
                 previous_node=None
             )
-        # Ìí¼Ó×îºóµÄĞéÄâ½Úµã
+        # æ·»åŠ æœ€åçš„è™šæ‹ŸèŠ‚ç‚¹
         node_col[str(self.node_num)] = 'red'
         Graph.add_node(
             str(self.node_num),
@@ -68,7 +68,7 @@ class RouteMap:
             min_dis=0,
             previous_node=None
         )
-        # Ìí¼Ó±ß
+        # æ·»åŠ è¾¹
         edge_list = []
 
 
