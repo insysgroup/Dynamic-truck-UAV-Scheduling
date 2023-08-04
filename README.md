@@ -7,7 +7,6 @@ To realize the integrated route planning based on a dynamic truck-UAV collaborat
 
 | Name                               | Description                                                  |
 | ---------------------------------- | ------------------------------------------------------------ |
-| **.idea**                          | Default files for project configurations.  |
 | **env**/**data**             | Datasets used in experiments.              |
 | **env**/configuration.py         | Parameter settings.                                 |
 | **env**/read_Data.py            | Functions for reading data from **env**/**data**.                            |
